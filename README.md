@@ -30,9 +30,9 @@ The PDF Report Generation API is a hobby project designed to simplify the proces
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/yourusername/pdf-report-generation-api.git`
+1. Clone the repository: `git clone https://github.com/prodanov17/pdf-report-generation-api.git`
 2. Navigate to the project directory: `cd pdf-report-generation-api`
-3. Build the project: `mvn clean install`
+3. Build the project: `./mvnw clean install`
 
 ### Usage
 ```java
@@ -49,6 +49,7 @@ try {
 }
 ```
 NOTE: The PDFOrderInvoice currently only works with objects of type Products
+
 ### Software Design Principles
 This project follows the SOLID principles, emphasizing flexibility, maintainability, and ease of use. The design encourages the separation of concerns, making it easy to extend and customize for specific use cases.
 
