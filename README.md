@@ -9,8 +9,6 @@ Generate professional PDF reports with ease using this hobby project, a simple a
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Software Design Principles](#software-design-principles)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -38,19 +36,19 @@ The PDF Report Generation API is a hobby project designed to simplify the proces
 
 ### Usage
 ```java
-    List<Products> products = List.of(
-            new Products("Product 1", 10, 100.0),
-            new Products("Product 2", 20, 200.0),
-            new Products("Product 3", 30, 300.0)
-    );
-    try {
-        ReportGenerator<Products> reportGenerator = new PDFReportGenerator<>(new PDFOrderInvoice<Products>(products), "report");
-        reportGenerator.generateReport();
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-    }
+List<Products> products = List.of(
+        new Products("Product 1", 10, 100.0),
+        new Products("Product 2", 20, 200.0),
+        new Products("Product 3", 30, 300.0)
+);
+try {
+    ReportGenerator<Products> reportGenerator = new PDFReportGenerator<>(new PDFOrderInvoice<Products>(products), "report");
+    reportGenerator.generateReport();
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}
 ```
-
+NOTE: The PDFOrderInvoice currently only works with objects of type Products
 ### Software Design Principles
 This project follows the SOLID principles, emphasizing flexibility, maintainability, and ease of use. The design encourages the separation of concerns, making it easy to extend and customize for specific use cases.
 
