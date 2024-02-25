@@ -15,17 +15,17 @@ public class ReportGeneratorApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ReportGeneratorApplication.class, args);
-        List<Products> products = List.of(
-                new Products("Product 1", 10, 100.0),
-                new Products("Product 2", 20, 200.0),
-                new Products("Product 3", 30, 300.0)
-        );
-        try {
-            ReportGenerator<Products> reportGenerator = new PDFReportGenerator<>(new PDFOrderInvoice<Products>(products), "report");
-            reportGenerator.generateReport();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        // List<Products> products = List.of(
+        //         new Products("Product 1", 10, 100.0),
+        //         new Products("Product 2", 20, 200.0),
+        //         new Products("Product 3", 30, 300.0)
+        // );
+        // try {
+        //     ReportGenerator<Products> reportGenerator = new PDFReportGenerator<>(new PDFOrderInvoice<Products>(products), "report");
+        //     reportGenerator.generateReport();
+        // } catch (Exception e) {
+        //     System.out.println(e.getMessage());
+        // }
     }
 
 }

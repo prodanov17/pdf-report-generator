@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.example.reportGenerator.models.Products;
+import com.example.reportGenerator.models.Report;
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.color.DeviceRgb;
@@ -19,22 +20,20 @@ import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
 
 public class PDFOrderInvoice<T> extends PDFTemplate<T> {
-    List<T> data;
-
-    public PDFOrderInvoice(List<T> data){
-        this.data = data;
+    public PDFOrderInvoice(Report<T> data){
+        super(data);
     }
 
     @Override
     public void generateTemplate(Document document){ 
-        String invoiceNumber = "93123131";
-        String invoiceDate = String.valueOf(LocalDate.now());
+        String invoiceNumber = report.getReportNumber();
+        String invoiceDate = String.valueOf(report.getDate());
 
 
         try {
             document.setFont(PdfFontFactory.createFont(FontConstants.HELVETICA));
         } catch (Exception e) {
-            System.out.println("Font could not be loaded, using default font");
+            System.out.println("Font could not be loaded, using default font " + e.getMessage());
         }
 
         System.out.println("Generating Order Invoice PDF");
@@ -103,7 +102,7 @@ public class PDFOrderInvoice<T> extends PDFTemplate<T> {
 
         double totalSum = 0;
         // Items
-        for (T item : data) {
+        for (T item : report.getContent()) {
             if (item instanceof Products) {
                 totalSum += ((Products) item).getPrice() * ((Products) item).getQuantity();
                 table.addCell(new Cell().add(((Products) item).getName()).setBorder(Border.NO_BORDER));

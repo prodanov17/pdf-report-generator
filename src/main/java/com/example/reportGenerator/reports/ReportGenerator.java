@@ -15,7 +15,7 @@ public abstract class ReportGenerator<T> implements IReportGenerator{
     protected String destination;
     protected ITemplate<T> template;
 
-    public abstract void generateReport();
+    public abstract byte[] generateReport();
 
     public ReportGenerator(ITemplate<T> template){
         this.destination = "src/main/resources/generated-reports/";
