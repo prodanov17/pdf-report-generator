@@ -18,7 +18,7 @@ public abstract class ReportGenerator<T> implements IReportGenerator{
     public abstract void generateReport();
 
     public ReportGenerator(ITemplate<T> template){
-        this.destination = "/Users/trajceprodanov/Projects/spring/reportGenerator/src/main/resources/generated-reports/";
+        this.destination = "src/main/resources/generated-reports/";
         this.template = template;
     }
 }
